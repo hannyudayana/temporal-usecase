@@ -27,7 +27,6 @@ The project includes a Docker Compose setup for easily running the Temporal serv
     ```bash
     docker-compose up -d
     ```
-    (This assumes you are using a `docker-compose.yml` similar to the one we discussed, possibly from the Temporal repository).
 3.  **Build the Spring Boot application:**
     ```bash
     ./gradlew build
