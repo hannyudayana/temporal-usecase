@@ -1,5 +1,6 @@
 package com.hannyudayana.demo.temporalusecase.controller
 
+import com.hannyudayana.demo.temporalusecase.dto.WorkflowResultDto
 import com.hannyudayana.demo.temporalusecase.workflows.SimpleOrchestrationWorkflow
 import io.temporal.client.WorkflowClient
 import io.temporal.client.WorkflowOptions
@@ -17,7 +18,7 @@ class WorkflowController {
     private lateinit var workflowClient: WorkflowClient
 
     @PostMapping("/1-simple-orchestration")
-    fun startSimpleOrchestration(): ResponseEntity<String> {
+    fun startSimpleOrchestration(): ResponseEntity<WorkflowResultDto> {
         val options = WorkflowOptions.newBuilder()
             .setTaskQueue("simple-orchestration-queue")
             .build()
@@ -29,6 +30,6 @@ class WorkflowController {
 
         val result = workflow.execute()
 
-        return ResponseEntity.ok("Workflow started and completed with result: $result")
-    }
+        val response = WorkflowResultDto(message = "Workflow started and completed successfully", result = result)
+        return ResponseEntity.ok(response)    }
 }
