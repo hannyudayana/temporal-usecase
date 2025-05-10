@@ -1,4 +1,10 @@
 package com.hannyudayana.demo.temporalusecase.activities
 
-class DatabaseService {
+import io.temporal.activity.ActivityInterface
+import io.temporal.activity.ActivityMethod
+
+@ActivityInterface
+interface DatabaseService {
+    @ActivityMethod
+    fun performDatabaseOperation(): String
 }

@@ -1,4 +1,10 @@
 package com.hannyudayana.demo.temporalusecase.activities
 
-class ApiService {
+import io.temporal.activity.ActivityInterface
+import io.temporal.activity.ActivityMethod
+
+@ActivityInterface
+interface ApiService {
+    @ActivityMethod
+    fun makeApiCall(): String
 }

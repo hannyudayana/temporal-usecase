@@ -1,11 +1,11 @@
 meta {
   name: Start Simple Orchestration Workflow
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
-  url: http://localhost:8080/api/workflows/simple-orchestration
+  url: {{BASE_URL}}/api/workflows/1-simple-orchestration
   body: none
   auth: inherit
 }

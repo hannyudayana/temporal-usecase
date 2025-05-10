@@ -1,4 +1,10 @@
 package com.hannyudayana.demo.temporalusecase.activities
 
-class KafkaService {
+import io.temporal.activity.ActivityInterface
+import io.temporal.activity.ActivityMethod
+
+@ActivityInterface
+interface KafkaService {
+    @ActivityMethod
+    fun publishKafkaMessage(message: String): String
 }
